@@ -1,0 +1,126 @@
+
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3 " style="background-color: black;" >
+            <nav class="navbar  " style="color: black;">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+<img src="assets/img/intermove.png">                </a>
+                <div class="d-flex align-items-center ms-4 mb-4" style="color: black;">
+                    <div class="position-relative">
+                    </div>
+                    <div class="ms-3">
+                        <span>Admin</span>
+                    </div>
+                </div>
+                <div class="navbar-nav  "style="color: black;">
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-user"></i> Users</a>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-question"></i> Quizzes/Skills</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a routerLink="/listQuiz" routerLinkActive="active"class="nav-link dropdown-toggle"> Quizz</a>
+                            <a routerLink="/listQuestion" routerLinkActive="active" class="nav-link dropdown-toggle"> Questions</a>
+                                <a  routerLink="/listReponse" routerLinkActive="active" class="nav-link dropdown-toggle"> Reponse</a>
+
+                        </div>
+                    </div>
+                        
+                    <a routerLink="list" routerLinkActive="active" class="nav-item nav-link" data-bs-toggle="dropdown">
+                        <li class="nav-item" *ngIf="_auth.isLoggedIn() == true">category</li>
+                      </a>
+                                              <a routerLink="listP" routerLinkActive="active" class="nav-item nav-link" data-bs-toggle="dropdown"><i class="fa fa-comments"></i> Complaints</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fas fa-university"></i> Offers</a>
+                            <div class="dropdown-menu bg-transparent border-0">
+                                <a href="signin.html" class="dropdown-item">Offers</a>
+
+                                <a href="signin.html" class="dropdown-item">Tags</a>
+
+    
+                            </div>
+                        </div>
+                                                       
+                    <a href="table.html" class="nav-item nav-link"><i class="	fas fa-hotel"></i> Accomodations</a>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fab fa-forumbee"></i> Forum</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Candidacy</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="signin.html" class="dropdown-item">Candidacy</a>
+                            <a href="signup.html" class="dropdown-item">Courses</a>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand   sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    
+                    <div class="nav-item dropdown">
+                       
+                           
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Admin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                <router-outlet></router-outlet>
+
+                <div class="row vh-100  rounded align-items-center justify-content-center mx-0">
+                    <div class="col-md-6 text-center">
+
+                    </div>
+                </div>
+            </div>
+            <!-- Blank End -->
+
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+   
+</body>
+

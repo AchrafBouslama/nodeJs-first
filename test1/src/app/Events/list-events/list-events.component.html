@@ -1,0 +1,108 @@
+<div class="row myrow">
+    <form #eventForm="ngForm" (ngSubmit)="addOrEditeEvent(event)" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">title:</label>
+            <input type="text" id="title" name="title" [(ngModel)]="event.title" class="form-control"
+                required minlength="3" #thistitle="ngModel">
+            <div class="alert alert-danger" *ngIf="thistitle.touched && thistitle.invalid">
+                <div *ngIf="thistitle?.errors?.['required']">titre is required!</div>
+                <div *ngIf="thistitle.errors?.['minlength']">titre must have at least 3 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" [(ngModel)]="event.description" class="form-control"
+                required minlength="3" #thisdescription="ngModel">
+            <div class="alert alert-danger" *ngIf="thisdescription.touched && thisdescription.invalid">
+                <div *ngIf="thisdescription?.errors?.['required']">Description is required!</div>
+                <div *ngIf="thisdescription.errors?.['minlength']">Description must have at least 3 characters.</div>
+        </div>
+    </div>
+
+        <div class="form-group">
+            <label for="dateD">dateD:</label>
+            <input type="date" id="dateD" name="dateD" [(ngModel)]="event.dateD" class="form-control" required minlength="3"
+                #thisdateD="ngModel">
+            <div class="alert alert-danger" *ngIf="thisdateD.touched && thisdateD.invalid">
+                <div *ngIf="thisdateD.errors?.['required']">Nom is required!</div>
+                <div *ngIf="thisdateD.errors?.['minlength']">Nom must have at least 3 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dateF">dateF:</label>
+            <input type="date" id="dateF" name="dateF" [(ngModel)]="event.dateF" class="form-control" required minlength="3"
+                #thisdateF="ngModel">
+            <div class="alert alert-danger" *ngIf="thisdateF.touched && thisdateF.invalid">
+                <div *ngIf="thisdateF.errors?.['required']">Nom is required!</div>
+                <div *ngIf="thisdateF.errors?.['minlength']">Nom must have at least 3 characters.</div>
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="nbreDePlaces">nbreDePlaces:</label>
+            <input type="number" id="nbreDePlaces" name="nbreDePlaces" [(ngModel)]="event.nbreDePlaces" class="form-control" required min="0"
+                #thisnbreDePlaces="ngModel">
+            <div class="alert alert-danger" *ngIf="thisnbreDePlaces.touched && thisnbreDePlaces.invalid">
+                <div *ngIf="thisnbreDePlaces.errors?.['required']">Score is required!</div>
+                <div *ngIf="thisnbreDePlaces.errors?.['min']">Score must be at least 0.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="image">image:</label>
+            <input type="file" class="form-control" id="firstName" [(ngModel)]="event.image"required (change)="onFileSelected($event)" name="image">
+            
+    </div>
+
+        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mybutton" [disabled]="eventForm.invalid">Save</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="col-12">
+    <div class=" rounded h-100 p-4">
+        <h6 class="mb-4">List Of Events</h6>
+        <div class="table-responsive">
+            <table class="table table-dark">
+                <thead>
+                    <tr>  
+                      
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Type Event</th>
+                        <th scope="col">Nbr Place </th>  
+                        <th scope="col">Image</th>
+                        <th scope="col">Description</th>
+
+                        <th scope="col">Date Fin</th>
+                        <th scope="col">Date Debut</th>
+                       
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <tr *ngFor="let event of events ">
+                            <td>      {{ event.id }}    </td>
+                            <td>      {{ event.title }}    </td>
+                            <td>      {{ event.typeEvent }}    </td>
+                            <td>      {{ event.nbreDePlaces }}    </td>
+                            <td><img src="assets/img/{{ event.image }}" width="100"></td>
+                            <td>      {{ event.description }}    </td>
+                            <td>{{ event.dateF  }}</td>
+                            <td>{{ event.dateD  }}</td>
+                            <td> <button (click)="editeEvent(event)" class="btn btn-success">Edite</button>
+                          </td>
+                           
+                          
+                    </tr>
+                   
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

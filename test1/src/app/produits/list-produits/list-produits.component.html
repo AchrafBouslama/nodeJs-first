@@ -1,0 +1,63 @@
+<div class="row myrow">
+    <form #produitForm="ngForm" (ngSubmit)="addOrEditeCategory(produit)" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">name:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="produit.name" class="form-control"
+                required minlength="3" #thisname="ngModel">
+            <div class="alert alert-danger" *ngIf="thisname.touched && thisname.invalid">
+                <div *ngIf="thisname?.errors?.['required']">titre is required!</div>
+                <div *ngIf="thisname.errors?.['minlength']">titre must have at least 3 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">description:</label>
+            <input type="text" id="description" name="description" [(ngModel)]="produit.description" class="form-control"
+                required minlength="3" #thisdescription="ngModel">
+            <div class="alert alert-danger" *ngIf="thisdescription.touched && thisdescription.invalid">
+                <div *ngIf="thisdescription?.errors?.['required']">Description is required!</div>
+                <div *ngIf="thisdescription.errors?.['minlength']">Description must have at least 3 characters.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="type">Category:</label>
+        <select class="form-control" name="type" [(ngModel)]="produit.category_id">
+            <option class="option" *ngFor="let category of categories" [value]="category._id"></option>
+        </select>
+    </div>
+     
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mybutton" [disabled]="produitForm.invalid">Save</button>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="col-12">
+    <div class=" rounded h-100 p-4">
+        <h1 class="mb-4" style="color: rgb(107, 103, 103);">List Of Products</h1>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table" style="color: white;">
+                <thead>
+                    <tr>
+
+                        
+                        <th scope="col">name</th>
+                        <th scope="col">description</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <tr *ngFor="let Produit of produits">
+                      
+                        <td> {{ Produit.name }} </td>
+                        <td> {{ Produit.description }} </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
